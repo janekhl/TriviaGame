@@ -47,19 +47,17 @@ $(document).ready(function() {
     var correct;
     var incorrect;
     var unanswered;
-    var index;
 
 
 
     function setup() {
-        index = 0;
+        var index = 0;
         $('#start').on('click', function() {
             $(this).hide();
             countdown.start();
             loadQuestion(index);
         });
     }		
-    setup();
     function loadQuestion(questionSelection) {
         countdown.reset();
         $(".question").html("<h3>" + trivia[questionSelection].q + "</h3>");
@@ -94,30 +92,30 @@ $(document).ready(function() {
         $('#results').append("<h2><p>" + incorrect + " incorrect</p></h2>");
         countdown.stop();
         $('#countdown').empty();
-        setup();
-        $('.choice').on('click', function() {
-            if(this.id === 'true') {
-                var userChoice = 't';
-            } else if(this.id === 'false') {
-                userChoice = 'f';
-            } 
-            console.log(userChoice);
-            if (userChoice === (trivia[index].answer)) {
-                answerCorrect();
-            } else {
-                answerWrong();
-            }
-            
-            $(".question").text('');
-            $("#true").text('');
-            $("#false").text('');
-            index++;
-            if (index < trivia.length) {
-                loadQuestion(index);
-            } else {
-                $(".choice").hide();
-                showScore();
-        }
-        });
     }
+    setup();
+    $('.choice').on('click', function() {
+        if(this.id === 'true') {
+            var userChoice = 't';
+        } else if(this.id === 'false') {
+            userChoice = 'f';
+        } 
+        console.log(userChoice);
+        if (userChoice === (trivia[index].answer)) {
+            answerCorrect();
+        } else {
+            answerWrong();
+        }
+        
+        $(".question").text('');
+        $("#true").text('');
+        $("#false").text('');
+        index++;
+        if (index < trivia.length) {
+            loadQuestion(index);
+        } else {
+            $(".choice").hide();
+            showScore();
+    }
+    });
 });
