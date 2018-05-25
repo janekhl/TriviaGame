@@ -44,8 +44,8 @@ $(document).ready(function() {
         { q: "Thanos is garbage though", options: ["t", "f"], answer:"t" },
         { q: "Spiderman's death wasn't heartbreaking in the slightest", options: ["t", "f"], answer:"f" }
       ];
-    var correct;
-    var incorrect;
+    var correct=0;
+    var incorrect=0;
     var unanswered;
 
 
