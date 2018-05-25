@@ -4,3 +4,13 @@
     width: 22%;
     text-align: center;
 }
+
+body {
+    background-color: lavender;
+    color: darkgreen;
+}
+
+button {
+    color:red;
+    background-color: blue;
+}
